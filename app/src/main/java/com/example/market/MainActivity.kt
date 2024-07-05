@@ -1,5 +1,6 @@
 package com.example.market
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,14 +17,19 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.market.component.BottomBar
+import com.example.market.component.MainBannerVertical
 import com.example.market.component.MainBottomCategory
 import com.example.market.component.MainCardCategory
+import com.example.market.component.MainImageCategory
 import com.example.market.component.MainTopBar
 import com.example.market.component.MainTopCategory
+import com.example.market.component.MainBannerVertical
 import com.example.market.component.TopMenu
 import com.example.market.model.dummyListBanner
 import com.example.market.model.dummyListTopMenus
 import com.example.market.model.dummyListBottomCategory
+import com.example.market.model.dummyListCardVertikal
 import com.example.market.model.dummyListTopCategory
 import com.example.market.ui.theme.MarketTheme
 
@@ -43,18 +49,41 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MarketApp(modifier : Modifier= Modifier) {
-    Column(modifier = modifier
-        .verticalScroll(rememberScrollState())) {
+    Scaffold(
+        bottomBar = { BottomBar()}
+    ) {paddingValues ->
+        Column(modifier = modifier
+            .padding(paddingValues)
+            .verticalScroll(rememberScrollState())) {
 
-        MainTopBar()
-        MainTopMenu()
-        MainCategoryTop()
-        MainCategoryCard()
-        MainCategoryBottom()
+            MainTopBar()
+            MainTopMenu()
+            MainCategoryTop()
+            MainCategoryCard()
+            MainCategoryBottom()
+            MainImageCategory()
+            MainBannerVertical()
+        }
+    }
+
+}
+
+@Composable
+fun MainBannerVertical(){
+    LazyRow(
+        horizontalArrangement = Arrangement.Start
+    ) {
+        items(dummyListCardVertikal){
+            MainBannerVertical(listBannerVertikal =  it)
+        }
+
     }
 }
+
+
 
 @Composable
 fun MainTopMenu(){
@@ -109,7 +138,7 @@ fun MainBottomCategoryPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun MainTopCategoryPreview() {
+fun MarketAppPreview() {
     MarketTheme {
         MainCategoryTop()
     }

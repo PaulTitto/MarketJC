@@ -16,7 +16,7 @@ val dummyListBottomCategory = listOf(
     R.drawable.travel to R.string.txt_category_food,
     R.drawable.topup to R.string.txt_category_laptop,
     R.drawable.cicil to R.string.txt_live,
-    R.drawable.official to R.string.txt_category_life_style
+    R.drawable.handphone to R.string.txt_category_life_style
 ).map{
     ListCategory(
         it.first, it.second
