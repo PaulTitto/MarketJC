@@ -100,7 +100,7 @@ fun LoginScreen(navController: NavController, state: LoginState = loginStateReme
         // Login Button
         Button(
             onClick = {
-                navController.navigate("home")
+                navController.navigate("marketapp")
                 // Show dialog on login button click
 //                state.showDialog = true
             },
@@ -142,10 +142,3 @@ fun LoginScreen(navController: NavController, state: LoginState = loginStateReme
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview(){
-    MarketTheme {
-
-    }
-}

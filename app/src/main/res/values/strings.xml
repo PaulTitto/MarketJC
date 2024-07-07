@@ -2,6 +2,7 @@
     <string name="app_name">market</string>
     <string name="txt_search_here">Search Here</string>
     <string name="txt_official_store">Official Store</string>
+    <string name="txt_list">Official List Person</string>
     <string name="txt_credit">Cicil 0%</string>
     <string name="txt_pay_later">Pay later</string>
     <string name="txt_category_food">Traveling</string>

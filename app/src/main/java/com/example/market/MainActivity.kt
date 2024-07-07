@@ -17,6 +17,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.market.component.BottomBar
 import com.example.market.component.MainBannerVertical
 import com.example.market.component.MainBottomCategory
@@ -30,6 +34,7 @@ import com.example.market.model.list.dummyListTopMenus
 import com.example.market.model.list.dummyListBottomCategory
 import com.example.market.model.list.dummyListCardVertikal
 import com.example.market.model.list.dummyListTopCategory
+import com.example.market.screen.login.LoginScreen
 import com.example.market.ui.theme.MarketTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,14 +43,22 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MarketTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    MarketApp(
+//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+////                    MarketApp(
+////                        modifier = Modifier.padding(innerPadding)
+////                    )
+//                    ImageApp(
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
-                    ImageApp(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+//                }
+
+                val navController = rememberNavController()
+                NavHost(navController = navController, startDestination = "login"){
+                    composable("login"){ LoginScreen(navController)}
+                    composable("marketapp"){ MarketApp(navController)}
+                    composable("list"){ ImageApp(navController) }
                 }
+
             }
         }
     }
@@ -53,9 +66,9 @@ class MainActivity : ComponentActivity() {
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MarketApp(modifier : Modifier= Modifier) {
+fun MarketApp(navController: NavController, modifier : Modifier= Modifier) {
     Scaffold(
-        bottomBar = { BottomBar()}
+        bottomBar = { BottomBar(navController)}
     ) {paddingValues ->
         Column(modifier = modifier
             .padding(paddingValues)
@@ -154,10 +167,10 @@ fun MainTopMenuPreview() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MarketTheme {
-        MarketApp()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    MarketTheme {
+//        MarketApp()
+//    }
+//}
