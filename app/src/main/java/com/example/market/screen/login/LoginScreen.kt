@@ -132,6 +132,7 @@ fun LoginScreen(navController: NavController, state: LoginState = loginStateReme
                             state.showDialog = false
                         }
                     ) {
+
                         Text("OK")
                     }
                 }

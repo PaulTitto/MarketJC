@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.market.R
-import com.example.market.model.ListCategory
+import com.example.market.model.list.ListCategory
 
 @Composable
 fun MainTopCategory(modifier: Modifier = Modifier, listTopCategory: ListCategory) {

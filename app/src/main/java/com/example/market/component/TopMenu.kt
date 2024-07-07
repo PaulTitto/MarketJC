@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.market.R
-import com.example.market.model.ListTopMenu
+import com.example.market.model.list.ListTopMenu
 import com.example.market.ui.theme.MarketTheme
 
 

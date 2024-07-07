@@ -24,13 +24,12 @@ import com.example.market.component.MainCardCategory
 import com.example.market.component.MainImageCategory
 import com.example.market.component.MainTopBar
 import com.example.market.component.MainTopCategory
-import com.example.market.component.MainBannerVertical
 import com.example.market.component.TopMenu
-import com.example.market.model.dummyListBanner
-import com.example.market.model.dummyListTopMenus
-import com.example.market.model.dummyListBottomCategory
-import com.example.market.model.dummyListCardVertikal
-import com.example.market.model.dummyListTopCategory
+import com.example.market.model.list.dummyListBanner
+import com.example.market.model.list.dummyListTopMenus
+import com.example.market.model.list.dummyListBottomCategory
+import com.example.market.model.list.dummyListCardVertikal
+import com.example.market.model.list.dummyListTopCategory
 import com.example.market.ui.theme.MarketTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +39,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MarketTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MarketApp(
+//                    MarketApp(
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+                    ImageApp(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
