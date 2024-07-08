@@ -28,6 +28,7 @@ import com.example.market.component.MainCardCategory
 import com.example.market.component.MainImageCategory
 import com.example.market.component.MainTopBar
 import com.example.market.component.MainTopCategory
+import com.example.market.component.ProfileApp
 import com.example.market.component.TopMenu
 import com.example.market.model.list.dummyListBanner
 import com.example.market.model.list.dummyListTopMenus
@@ -57,6 +58,7 @@ class MainActivity : ComponentActivity() {
                     composable("login"){ LoginScreen(navController)}
                     composable("marketapp"){ MarketApp(navController)}
                     composable("list"){ ImageApp(navController) }
+                    composable("profile"){ ProfileApp(navController) }
                 }
 
             }
