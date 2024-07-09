@@ -7,7 +7,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -29,12 +28,18 @@ import com.example.market.component.MainImageCategory
 import com.example.market.component.MainTopBar
 import com.example.market.component.MainTopCategory
 import com.example.market.component.ProfileApp
+import com.example.market.component.Screen
 import com.example.market.component.TopMenu
 import com.example.market.model.list.dummyListBanner
 import com.example.market.model.list.dummyListTopMenus
 import com.example.market.model.list.dummyListBottomCategory
 import com.example.market.model.list.dummyListCardVertikal
 import com.example.market.model.list.dummyListTopCategory
+import com.example.market.screen.profile.FavoritesScreen
+import com.example.market.screen.profile.LocationScreen
+import com.example.market.screen.profile.MessagesScreen
+import com.example.market.screen.profile.MyPersonScreen
+import com.example.market.screen.profile.SettingsScreen
 import com.example.market.screen.login.LoginScreen
 import com.example.market.ui.theme.MarketTheme
 
@@ -59,12 +64,19 @@ class MainActivity : ComponentActivity() {
                     composable("marketapp"){ MarketApp(navController)}
                     composable("list"){ ImageApp(navController) }
                     composable("profile"){ ProfileApp(navController) }
+                    composable(Screen.MyPerson.route) { MyPersonScreen(navController) }
+                    composable(Screen.Messages.route) { MessagesScreen(navController) }
+                    composable(Screen.Favorites.route) { FavoritesScreen(navController) }
+                    composable(Screen.Location.route) { LocationScreen(navController) }
+                    composable(Screen.Settings.route) { SettingsScreen(navController) }
                 }
 
             }
         }
     }
 }
+
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
