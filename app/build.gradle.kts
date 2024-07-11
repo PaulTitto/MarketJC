@@ -1,6 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
+//    alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -72,4 +74,13 @@ dependencies {
     val nav_version = "2.7.7"
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+//    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+//    implementation("com.google.firebase:firebase-analytics")
+
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
 }
+apply(plugin = "com.google.gms.google-services")

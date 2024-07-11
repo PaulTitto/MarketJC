@@ -18,9 +18,14 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,10 +40,17 @@ import com.example.market.R
 import com.example.market.screen.state.LoginState
 import com.example.market.screen.state.loginStateRemember
 import com.example.market.ui.theme.MarketTheme
+import com.google.firebase.auth.FirebaseAuth // this is error
+import com.google.firebase.auth.ktx.auth  // this is error
+import com.google.firebase.ktx.Firebase
+import kotlin.math.log
 
 @Composable
 fun LoginScreen(navController: NavController, state: LoginState = loginStateRemember(inputState = "", alertState = false)) {
-
+    val auth: FirebaseAuth = Firebase.auth  // this is error
+    var loginERror by remember {
+        mutableStateOf<String?>(null)
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -100,13 +112,22 @@ fun LoginScreen(navController: NavController, state: LoginState = loginStateReme
         // Login Button
         Button(
             onClick = {
-                navController.navigate("marketapp")
-                // Show dialog on login button click
-//                state.showDialog = true
+                auth.signInWithEmailAndPassword(state.email, state.password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful){
+                            navController.navigate("marketapp")
+                        }else{
+                            loginERror = task.exception?.message
+                        }
+                    }
+
             },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Login")
+        }
+        loginERror?.let { 
+            Text(text = it, color = MaterialTheme.colorScheme.error)
         }
 
         // Dialog

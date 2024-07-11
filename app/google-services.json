@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "249134129873",
+    "project_id": "sportfluxid",
+    "storage_bucket": "sportfluxid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249134129873:android:2f7909afd85877c9d85bf0",
+        "android_client_info": {
+          "package_name": "com.example.market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249134129873-h4irbirgn9822n81uhkg7osuqth498p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuDAK7kficIdjU0jyVhAK7bdXSruPQe1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249134129873-h4irbirgn9822n81uhkg7osuqth498p3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
